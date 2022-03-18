@@ -25,7 +25,7 @@ function Wait() {
     
       
 
-          <input type="button" className="ready-not btn" value="Ready" onClick={()=>router.replace("/DeadZone")}/>
+          <input type="button" className="ready-not btn" value="Ready" onClick={()=>router.replace("/deadZone")}/>
  
     </div>
   );
