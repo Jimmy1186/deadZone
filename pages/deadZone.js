@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-function deadZone() {
+function DeadZone() {
   const [inZone, setInZone] = useState(false);
 
-  const options = {
-    enableHighAccuracy: true,
-    timeout: 50000,
-    maximumAge: 0,
-    distanceFilter: 1,
-  };
+ 
 
   // const canvasRef = useRef(null)
 
   useEffect(() => {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 50000,
+      maximumAge: 0,
+      distanceFilter: 1,
+    };
     function getPosition() {
       return new Promise((res, rej) => {
         navigator.geolocation.watchPosition(res, rej, options);
@@ -78,4 +79,4 @@ function deadZone() {
   );
 }
 
-export default deadZone;
+export default DeadZone;
