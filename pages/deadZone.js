@@ -30,14 +30,14 @@ const [inZone,setInZone] = useState(false)
     return Math.sqrt(dx * dx + dy * dy) <= km;
   }
 
-  async function main() {
-    let position = await getPosition();
-    return position;
-  }
+
   // const canvasRef = useRef(null)
 
   useEffect(() => {
- 
+    async function main() {
+      let position = await getPosition();
+      return position;
+    }
    main().then((res) => {
     const coord = {
       lng: 121.589612,
