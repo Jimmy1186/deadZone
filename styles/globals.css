@@ -1,6 +1,16 @@
+:root {
+  --red: #f72585;
+  --blue: #4895ef;
+  --green: #55a630;
+  --black: #000000;
+  --yellow: #ffbe0b;
+}
+
 html,
 body {
   padding: 0;
+  width: 100%;
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -14,3 +24,161 @@ a {
 * {
   box-sizing: border-box;
 }
+#__next {
+  height: 100%;
+}
+#__next > div {
+  height: 100%;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+}
+.topTitle {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.topTitle > h1 {
+  align-self: center;
+  padding: 0 6em 0 5em;
+}
+.choose {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.choseBlock {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 4em;
+}
+.redTeam {
+  background-color: var(--red);
+}
+.blueTeam {
+  background-color: var(--blue);
+}
+.redTeam,
+.blueTeam {
+  width: 30vw;
+  height: 60vh;
+}
+.form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+.usernameInput {
+  width: 50%;
+  height: 20vh;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 5px solid var(--black);
+}
+
+.btn {
+  border: none;
+  color: white;
+  width: 30%;
+  font-size: 1.5rem;
+  height: 20vh;
+}
+.submit {
+  background: var(--green);
+}
+.ready-not {
+  border: 5px solid var(--black);
+  color: var(--black);
+  background: none;
+}
+
+.ready {
+  border: none;
+  background: var(--green);
+}
+
+.people {
+  width: 70%;
+  display: flex;
+  height: 50vh;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: scroll;
+}
+p {
+  margin: 0;
+}
+.players {
+  border: var(--black) 5px solid;
+  width: 48%;
+  height: fit-content;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.zone {
+  height: 100%;
+  display: flex;
+}
+.game {
+  width: 80%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.dashboard {
+  width: 20%;
+}
+.radus {
+  width: 50px;
+  color: aliceblue;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(151, 151, 151);
+}
+.occupied{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  gap: 3em;
+}
+.zoneR{
+  background-color: var(--red);
+}
+.zoneB{
+  background-color: var(--blue);
+}
+/* .A {
+
+}
+.B {
+  
+}
+.C {
+
+}
+.D {
+
+}
+.E {
+
+} */
