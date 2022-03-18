@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 
 function DeadZone() {
   const [inZone, setInZone] = useState(false);
-
+const[crood,setCrood] =useState({})
  
 
-  // const canvasRef = useRef(null)
 
   useEffect(() => {
     const options = {
@@ -36,6 +35,8 @@ function DeadZone() {
         lng: 121.589612,
         lat: 25.038521,
       };
+      console.log( res.coords.latitude,res.coords.longitude )
+      setCrood({ lat: res.coords.latitude, lng:res.coords.longitude })
       let n = arePointsNear(
         { lng: res.longitude, lat: res.latitude },
         coord,
@@ -45,22 +46,7 @@ function DeadZone() {
       setInZone(n);
     });
 
-    // const canvas = canvasRef.current
-    // const A = canvas.getContext('2d')
-    // const B = canvas.getContext('2d')
-    // // A.beginPath();
-    // A.arc(35,34,5,0, Math.PI * 2, true);
-    // A.arc(24.2,32.8,5,0, Math.PI * 2, true);
-    // A.arc(69.1,56.1,5,0, Math.PI * 2, true);
-    // A.arc(26.8,79.4,5,0, Math.PI * 2, true);
-    // A.moveTo(10,30)
-    // A.lineTo(65,145)
-    // A.lineTo(100,145)
-    // A.lineTo(75,105)
-    // A.lineTo(50,95)
-    // A.lineTo(40,80)
-    // A.lineTo(45,35)
-    // A.stroke()
+
   }, []);
 
   return (
@@ -73,6 +59,7 @@ function DeadZone() {
           <div className="radus D">D</div>
           <div className="radus E">E</div>
         </div>
+        <h1>{crood.lng},{crood.lat}</h1>
       </div>
       <div className="dashboard"></div>
     </div>
