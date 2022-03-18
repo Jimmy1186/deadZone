@@ -1,9 +1,7 @@
-import React, {  useState, useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 
 function deadZone() {
-const [inZone,setInZone] = useState(false)
-
+  const [inZone, setInZone] = useState(false);
 
   const options = {
     enableHighAccuracy: true,
@@ -12,47 +10,39 @@ const [inZone,setInZone] = useState(false)
     distanceFilter: 1,
   };
 
-  function getPosition() {
-    return new Promise((res, rej) => {
-      navigator.geolocation.watchPosition(res, rej, options);
-    });
-  }
-
-
-
-
-
-  function arePointsNear(checkPoint, centerPoint, km) {
-    var ky = 40000 / 360;
-    var kx = Math.cos((Math.PI * centerPoint.lat) / 180.0) * ky;
-    var dx = Math.abs(centerPoint.lng - checkPoint.lng) * kx;
-    var dy = Math.abs(centerPoint.lat - checkPoint.lat) * ky;
-    return Math.sqrt(dx * dx + dy * dy) <= km;
-  }
-
-
   // const canvasRef = useRef(null)
 
   useEffect(() => {
+    function getPosition() {
+      return new Promise((res, rej) => {
+        navigator.geolocation.watchPosition(res, rej, options);
+      });
+    }
+
+    function arePointsNear(checkPoint, centerPoint, km) {
+      var ky = 40000 / 360;
+      var kx = Math.cos((Math.PI * centerPoint.lat) / 180.0) * ky;
+      var dx = Math.abs(centerPoint.lng - checkPoint.lng) * kx;
+      var dy = Math.abs(centerPoint.lat - checkPoint.lat) * ky;
+      return Math.sqrt(dx * dx + dy * dy) <= km;
+    }
     async function main() {
       let position = await getPosition();
       return position;
     }
-   main().then((res) => {
-    const coord = {
-      lng: 121.589612,
-      lat: 25.038521,
-    };
+    main().then((res) => {
+      const coord = {
+        lng: 121.589612,
+        lat: 25.038521,
+      };
       let n = arePointsNear(
         { lng: res.longitude, lat: res.latitude },
         coord,
         0.005
       );
-      console.log(n)
-      setInZone(n)
+      console.log(n);
+      setInZone(n);
     });
-   
- 
 
     // const canvas = canvasRef.current
     // const A = canvas.getContext('2d')
@@ -70,15 +60,13 @@ const [inZone,setInZone] = useState(false)
     // A.lineTo(40,80)
     // A.lineTo(45,35)
     // A.stroke()
-    
   }, []);
 
   return (
     <div className="zone">
       <div className="game">
         <div className="occupied">
-          
-          <div className={`radus A ${inZone? 'zoneR':'zoneB'}`}>A</div>
+          <div className={`radus A ${inZone ? "zoneR" : "zoneB"}`}>A</div>
           <div className="radus B">B</div>
           <div className="radus C">C</div>
           <div className="radus D">D</div>
