@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-// import {main} from "./../utils/coords"
+import React, {  useState, useEffect } from "react";
+
 
 function deadZone() {
 const [inZone,setInZone] = useState(false)
@@ -18,15 +18,9 @@ const [inZone,setInZone] = useState(false)
     });
   }
 
-  const coord = {
-    lng: 121.589612,
-    lat: 25.038521,
-  };
 
-  const cheCoord = {
-    lng: 121.367259,
-    lat: 25.102381,
-  };
+
+
 
   function arePointsNear(checkPoint, centerPoint, km) {
     var ky = 40000 / 360;
@@ -43,8 +37,12 @@ const [inZone,setInZone] = useState(false)
   // const canvasRef = useRef(null)
 
   useEffect(() => {
-
+ 
    main().then((res) => {
+    const coord = {
+      lng: 121.589612,
+      lat: 25.038521,
+    };
       let n = arePointsNear(
         { lng: res.longitude, lat: res.latitude },
         coord,
