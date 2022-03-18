@@ -1,11 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import arrow from "../public/arrow-left-circle-outline.png";
-import {useRouter} from "next/router"
+import { useRouter } from "next/router";
 
 function Wait() {
-
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className="choose">
@@ -19,14 +18,14 @@ function Wait() {
           <p>Jimmy</p>
           <div className="r"></div>
         </div>
-
       </div>
 
-    
-      
-
-          <input type="button" className="ready-not btn" value="Ready" onClick={()=>router.replace("/deadZone")}/>
- 
+      <input
+        type="button"
+        className="ready-not btn"
+        value="Ready"
+        onClick={() => router.replace("/deadZone")}
+      />
     </div>
   );
 }
