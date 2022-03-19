@@ -2,7 +2,8 @@ import React from "react";
 import Image from "next/image";
 import arrow from "../public/arrow-left-circle-outline.png";
 
-function Username({ nameChoose, setChoosename,  choose, setChoose,username, setusername}) {
+
+function Username({ setChoosename, setChoose}) {
 
   const waitingHandler =(e)=>{
     e.preventDefault()
@@ -24,8 +25,8 @@ function Username({ nameChoose, setChoosename,  choose, setChoose,username, setu
           type="text"
           name="name"
           placeholder="john mama"
-          value={username}
-          onChange={(e)=>setusername(e.target.value)}
+          // value={user}
+          // onChange={(e)=>setUser(e.target.value)}
         />
         <button type="submit" className="submit btn">
           Submit
